@@ -1,0 +1,110 @@
+/* @import url(./global.css);
+@import url(./components/header.css);
+@import url(./components/footer.css);
+@import url(./components/background.css);
+@import url(./components/modal.css);
+@import url(./sections/hero.css);
+@import url(./sections/about.css);
+@import url(./sections/skills.css);
+@import url(./sections/work.css);
+@import url(./sections/contact.css); */
+
+:root {
+    /* colors */
+    --main-bg: #fafafa;
+    --main-text: #4d5874;
+    --heading-text: #323239;
+    --gray-border: #cecece;
+    --color-primary: #c084fc;
+    --color-primary-dark: #a365e2;
+    --color-primary-darker: #7f3dc1;
+    --color-secondary: #f472b6;
+    --color-tertiary: #93c5fd;
+
+    --color-primary-bg: rgba(192, 132, 252, 0.4);
+    --color-secondary-bg: rgba(244, 114, 182, 0.3);
+    --color-tertiary-bg: rgba(147, 197, 253, 0.3);
+
+    --shadow-color: rgba(77, 77, 87, 0.19);
+    --modal-bg: rgba(137, 137, 160, 0.5);
+    --btn-plain-bg: #ffffff93;
+    --focus-outline: #4cb0fd;
+
+    --primary-border: color-mix(
+        in srgb,
+        var(--color-primary-dark),
+        transparent 60%
+    );
+}
+
+[data-theme="dark"] {
+    --main-bg: #252529;
+    --main-text: #dadaeb;
+    --heading-text: #efefff;
+    --gray-border: #484848;
+
+    --color-primary: #ad64f6;
+    --color-primary-dark: #bb8beb;
+    --color-primary-darker: #c48afe;
+    --color-secondary: #f759aa;
+    --color-tertiary: #68adfc;
+
+    --color-primary-bg: rgba(99, 59, 139, 0.35);
+    --color-secondary-bg: rgba(128, 59, 94, 0.25);
+    --color-tertiary-bg: rgba(65, 104, 150, 0.25);
+
+    --shadow-color: rgba(79, 52, 109, 0.797);
+    --modal-bg: rgba(47, 47, 67, 0.5);
+    --btn-plain-bg: #2e2e3a93;
+    --focus-outline: #98c1ff;
+}
+
+/* text utilities */
+.yeseva-one-regular {
+    font-family: "Yeseva One", Georgia, serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.text-regular {
+    font-weight: 400;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+/* style reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Nunito Sans", Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--main-text);
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+    background-color: var(--main-bg);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* large */
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 112.5%; /* 18px */
+    }
+}

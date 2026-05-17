@@ -1,0 +1,56 @@
+#skills {
+    width: clamp(280px, 70%, 800px);
+}
+
+#skills > div {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-auto-rows: max-content;
+    margin: 0 2rem;
+}
+
+#skills .container {
+    padding: 1rem 1.4rem;
+    text-align: start;
+    /* a transparent border is glitching on chrome android when in landscape ??? */
+    border: 1px solid var(--main-bg);
+    border-radius: 20px;
+    background-color: color-mix(in srgb, var(--main-bg), transparent 60%);
+    /* backdrop-filter: blur(10px); */
+}
+
+#skills .title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+#skills svg {
+    stroke: var(--color-primary-dark);
+    /* fill: var(--color-primary-dark); */
+}
+
+#skills ul {
+    font-size: 0.9em;
+    line-height: 1.8;
+    /* list-style: none; */
+    list-style-position: inside;
+    padding-inline-start: 0.3rem;
+}
+
+#skills ul li::marker {
+    color: var(--color-primary-dark);
+}
+
+/* medium */
+@media only screen and (min-width: 768px) {
+    #skills > div {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-auto-rows: auto;
+        margin: 0;
+    }
+}

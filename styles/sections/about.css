@@ -1,0 +1,13 @@
+#about {
+    padding: 0 1rem;
+    width: clamp(280px, 65%, 800px);
+}
+
+#about p {
+    margin-bottom: 1rem;
+}
+
+#about p a {
+    color: var(--main-text);
+    border-radius: 3px;
+}

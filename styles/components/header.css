@@ -1,0 +1,203 @@
+header {
+    position: sticky;
+    top: 0;
+    background-color: color-mix(in srgb, var(--main-bg), transparent 50%);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: var(--gray-border) 1px solid;
+    /* padding: 0.8rem 1.2rem; */
+    padding: 0 1.2rem;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    gap: 1.2rem;
+    z-index: 100;
+}
+
+header #show-menu {
+    border: none;
+    /* outline: none; */
+    background-color: transparent;
+    font: inherit;
+    color: var(--main-text);
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0; /* instead of header padding, this way i can calculate nav top offset based on button height */
+}
+
+header .title a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--heading-text);
+    border-radius: 3px;
+    padding: 0.2rem;
+}
+
+nav {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#desktop-nav {
+    display: none;
+}
+
+#mobile-nav {
+    /* display: none; */
+    /* backdrop filter doesn't work inside header */
+    /*and moving nav outside header looks weird in keyboard navigation */
+    /* and i'm too tired to fix it so the ugly non-blurred background stays for now */
+    background-color: color-mix(in srgb, var(--main-bg), transparent 35%);
+    /* -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); */
+    border-bottom: var(--gray-border) 1px solid;
+
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden; /*hide from screen readers*/
+
+    position: fixed;
+    top: calc(20px + 0.8 * 2rem);
+    left: 0rem;
+    width: 100%;
+    transition: all 400ms ease-in-out;
+}
+
+#mobile-nav.visible {
+    /* display: block; */
+    max-height: 600px;
+    visibility: visible;
+}
+
+#mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0.3rem;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    color: var(--main-text);
+    width: 100%;
+    transition: all 150ms ease;
+    border-radius: 3px;
+}
+
+nav ul li a:hover,
+nav ul li a:visited:hover {
+    color: var(--color-primary-darker);
+}
+
+nav ul li a:visited {
+    color: var(--main-text);
+}
+
+.switch input {
+    /* display: none; */
+}
+
+.switch {
+    margin-inline-start: auto;
+    display: inline-block;
+    position: relative;
+    width: 54px;
+    height: 28px;
+}
+
+.slider {
+    background-color: var(--btn-plain-bg);
+    color: var(--main-text);
+    border: var(--main-text) 1px solid;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    border-radius: 32px;
+    transition: all 150ms ease-in;
+}
+
+.slider::before {
+    background-color: var(--main-text);
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 3.5px;
+    left: 3.5px;
+    border-radius: 50%;
+    content: "";
+    transition: all 200ms ease;
+}
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+input:focus-visible + .slider {
+    outline: 2px solid var(--focus-outline);
+    outline-offset: 3px;
+}
+
+.slider .icon {
+    position: absolute;
+    top: 6px;
+    transition: all 100ms ease;
+}
+
+.slider .icon.light {
+    left: 6px;
+    visibility: hidden;
+}
+
+input:checked + .slider .icon.light {
+    visibility: visible;
+}
+
+.slider .icon.dark {
+    right: 6px;
+    visibility: visible;
+}
+
+input:checked + .slider .icon.dark {
+    visibility: hidden;
+}
+
+/* medium */
+@media only screen and (min-width: 768px) {
+    header #show-menu,
+    #mobile-nav {
+        display: none;
+    }
+
+    header .title {
+        order: 1;
+    }
+
+    header .switch {
+        order: 3;
+    }
+
+    #desktop-nav {
+        display: inline-block;
+        padding: 0.5rem 1.2rem;
+        flex: 1;
+        order: 2;
+    }
+
+    #desktop-nav ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.4rem;
+    }
+}

@@ -1,0 +1,51 @@
+#contact > * {
+    margin-bottom: 1rem;
+}
+
+#contact button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+#contact button span {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#icon-copied {
+    position: absolute;
+    inset: 0;
+}
+
+#icon-copy,
+#icon-copied {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+}
+
+#icon-copy.visible,
+#icon-copied.visible {
+    opacity: 1;
+}
+
+#contact .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+#contact .button-plain {
+    border-radius: 100%;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact .button-plain:hover {
+    transform: scale(1.1);
+}

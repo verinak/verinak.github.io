@@ -1,0 +1,47 @@
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-color: var(--main-bg);
+
+    background-image:
+        radial-gradient(
+            at 57% 84%,
+            var(--color-secondary-bg) 8%,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 100% 45%,
+            var(--color-tertiary-bg) 12%,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 00% 36%,
+            var(--color-primary-bg) 10%,
+            transparent 55%
+        );
+
+    animation: pulse 16s ease-in-out infinite;
+    /* filter: blur(20px); */
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1, 1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: scale(1, 1.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1, 1);
+        opacity: 0.8;
+    }
+    75% {
+        transform: scale(1.5, 1);
+        opacity: 1;
+    }
+}
